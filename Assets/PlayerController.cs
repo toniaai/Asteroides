@@ -5,17 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {   
     private Rigidbody2D PlayerRigidBody2d;
-    float MultiplierForward;
-    float MultiplierRotation;
 
+    [Header("Speeds")]
+    [SerializeField]float MultiplierForward = 200.0f;
+    [SerializeField]float MultiplierRotation = 1.8f;
+    
     // Start is called before the first frame update
     void Start()
     {
         PlayerRigidBody2d = GetComponent<Rigidbody2D>();
         Physics2D.gravity = Vector2.zero;
-        PlayerRigidBody2d.drag = 3.0f;
-        MultiplierForward = 200.0f;
-        MultiplierRotation = 1.8f;
+        PlayerRigidBody2d.drag = 3.0f;              
     }
 
     // Update is called once per frame
