@@ -655,7 +655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d27e3b71edc46e585abe49f6de3574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 0}
 --- !u!210 &1426541204
 SortingGroup:
   m_ObjectHideFlags: 0

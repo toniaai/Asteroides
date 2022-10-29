@@ -4,42 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {   
-    [SerializeField] private Rigidbody2D rigidbody2D;
+    private Rigidbody2D PlayerRigidBody2d;
+    float MultiplierForward;
+    float MultiplierRotation;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerRigidBody2d = GetComponent<Rigidbody2D>();
+        Physics2D.gravity = Vector2.zero;
+        PlayerRigidBody2d.drag = 3.0f;
+        MultiplierForward = 200.0f;
+        MultiplierRotation = 1.8f;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            
+            PlayerRigidBody2d.AddRelativeForce(Vector2.up * this.MultiplierForward * Time.fixedDeltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            
+            PlayerRigidBody2d.rotation += MultiplierRotation;
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKey(KeyCode.D))
         {
-            
+            PlayerRigidBody2d.rotation += -MultiplierRotation;
         }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            
-        }
-
-
-        
     }
 }
